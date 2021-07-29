@@ -18,8 +18,8 @@ class Routers {
 
   }
 
-  getBalance(req, res, next) {
-    const balance = req.reduce((acc, operation) => {
+  getBalance(statement) {
+    const balance = statement.reduce((acc, operation) => {
       if (operation.type === 'credit') {
         return acc + operation.amount
       } else {
